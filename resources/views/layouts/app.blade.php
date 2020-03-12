@@ -33,15 +33,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
-                        </li>                       
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
-                        </li>
+                        
+                        {{--  Pregunta si el usuario logueado tiene permisos @can('nombre_permiso') 
+                        de acuerdo al permiso, oculta o muestra los item--}}
+                        @can('roles.index')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
+                            </li>
+                        @endcan
+
+                        @can('users.index')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.index') }}">Usuarios</a>
+                            </li>   
+                        @endcan
+
+                        @can('products.index')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                            </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
