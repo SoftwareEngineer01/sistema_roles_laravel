@@ -34,8 +34,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         
-                        {{--  Pregunta si el usuario logueado tiene permisos @can('nombre_permiso') 
-                        de acuerdo al permiso, oculta o muestra los item--}}
                         @can('roles.index')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
