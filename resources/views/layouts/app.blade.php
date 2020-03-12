@@ -9,8 +9,25 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+
+    <!-- DataTables JS-->         
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>	
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>    
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" defer></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"></script>
+ 
+	<!-- DataTables CSS-->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -93,5 +110,10 @@
             @yield('content')
         </main>
     </div>
+
+      <!-- Scripts -->
+      @stack('js')
+      <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
