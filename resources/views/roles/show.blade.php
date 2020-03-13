@@ -6,16 +6,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    Usuario
+                    Roles
                 </div>
 
                 <div class="card-body">
-                   {{ Form::open( ['route' => 'users.store']) }}
-
-                        @include('users.partials.form')
-
-                   {{ Form::close() }} 
-
+                    <p><strong>Nombre: </strong>{{ $role->name}}</p>
+                    <p><strong>Slug: </strong>{{ $role->slug}}</p>
+                    <p><strong>Descripción: </strong>{{ $role->description}}</p>
                 </div>
 
             </div>

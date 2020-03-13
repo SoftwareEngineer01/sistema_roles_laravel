@@ -1,12 +1,17 @@
 <div class="form-group">
-    {{ Form::label('name', 'Nombre del Producto') }}
+    {{ Form::label('name', 'Nombre del usuario') }}
     {{ Form::text('name', null, ['class' => 'form-control']) }}
 </div>
 
 <div class="form-group">
-    {{ Form::label('description', 'Descripción del Producto') }}
-    {{ Form::text('description', null, ['class' => 'form-control']) }}
+	{{ Form::label('email', 'Email') }}
+	{{ Form::text('email', null, ['class' => 'form-control']) }}
 </div>
+
+<div class="form-group">
+	{{ Form::label('password', 'Contraseña') }}
+	{{ Form::text('password', null, ['class' => 'form-control']) }}
+</div>	
 
 <h3>Lista de roles</h3>
 <div class="form-group">

@@ -26,7 +26,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -40,9 +41,16 @@ class UserController extends Controller
         //Método que se activa cuando le damos guardar al formulario
         //Aqui guardamos el usuario que se va a crear
 
-        $user = User::create($request->all());
+        $users = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
 
-        return redirect()->route('users.index', $user->id)
+        ]);
+
+        $users->roles()->sync($request->get('roles'));
+
+        return redirect()->route('users.index', $users->id)
             ->with('info', 'Usuario guardado con éxito');
     }
 
@@ -82,7 +90,14 @@ class UserController extends Controller
     {
 
         //Actualizar usuario
-        $user->update($request->all());
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        $user->roles()->sync($request->get('roles'));
+
 
         //Actualizar roles - un usuario puede tener muchos roles sync()sincronizacion y le pasamos
         //todo lo que tenemos en el array roles

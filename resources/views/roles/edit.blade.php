@@ -6,16 +6,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    Usuario
+                    Rol
                 </div>
 
                 <div class="card-body">
-                   {{ Form::open( ['route' => 'users.store']) }}
+                   {!! Form::model($role, ['route' => ['roles.update', $role->id],                   
+                   'method' => 'PUT']) !!}
 
-                        @include('users.partials.form')
+                        @include('roles.partials.form')
 
-                   {{ Form::close() }} 
-
+                   {!! Form::close() !!}
                 </div>
 
             </div>
