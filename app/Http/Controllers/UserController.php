@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -64,8 +65,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //Busca el producto con el id que le pasamos $product
-        return view('users.edit', compact('user'));
+        $roles = Role::get();//Obtiene todos los roles creados
+
+        //Busca el producto con el id que le pasamos $user y $roles
+        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
