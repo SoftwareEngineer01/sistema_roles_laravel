@@ -80,7 +80,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
+        //Actualizar usuario
         $user->update($request->all());
+
+        //Actualizar roles - un usuario puede tener muchos roles sync()sincronizacion y le pasamos
+        //todo lo que tenemos en el array roles
+        /*Este usuario tiene algunos roles, sincronizalo con lo que estamos pasando atraves del array lista de roles*/
+        $user->roles()->sync($request->get('roles'));
 
         return redirect()->route('users.edit', $user->id)
         ->with('info', 'Usuario actualizado con éxito');
