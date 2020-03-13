@@ -82,7 +82,7 @@ class RoleController extends Controller
     {
         $role->update($request->all());
 
-        //Actualizar permisos
+        //Actualizar permisos con los que tenga relación el rol
         $role->permissions()->sync($request->get('permissions'));
 
         return redirect()->route('roles.edit', $role->id)
