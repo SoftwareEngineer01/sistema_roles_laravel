@@ -29,5 +29,6 @@
 </div>
 
 <div class="form-group">   
-    {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+	{{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+	<button class="btn btn-sm btn-danger "><a style="color:white; text-decoration:none" href="{{ route('users.index') }}">Cancelar</a></button>
 </div>
